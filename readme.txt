@@ -16,8 +16,8 @@ Sell recurring subscription products -- renewal orders are generated on schedule
 
 HDWebmobile Simple Subscriptions lets a merchant mark any simple product as a recurring subscription (renews every N days, weeks, months, or years). When a customer's order for that product is paid, a subscription record is created; from then on, a scheduled job automatically generates a new order at each renewal and emails the customer a link to pay it. Customers manage their own subscriptions (view status, cancel) from a new "Subscriptions" tab in My Account.
 
-= Why this plugin exists =
-A competing WooCommerce Subscriptions plugin had a PHP Object Injection vulnerability (CVE-2026-18391): with High-Performance Order Storage enabled, it called PHP's `unserialize()` on data without validating it first, and an unauthenticated attacker could supply a crafted serialized payload that instantiated a gadget-chain object from a bundled dependency -- remote code execution. This plugin closes that entire vulnerability class by construction, not by sanitizing the unserialize call more carefully:
+= Security by design =
+A serious class of bug in subscription tools is PHP Object Injection (CWE-502): calling PHP's `unserialize()` on data without validating it first, so an unauthenticated attacker can supply a crafted serialized payload that instantiates a gadget-chain object from a bundled dependency -- remote code execution. This plugin closes that entire vulnerability class by construction, not by sanitizing the unserialize call more carefully:
 
 * This plugin never calls PHP's `serialize()` or `unserialize()` anywhere in its code, on any data, under any circumstance. There is nothing to feed a gadget chain because there is no deserialization step to attack.
 * Every piece of subscription state -- the renewal interval, the next renewal date, the status -- is stored as its own plain scalar database column (an integer, a date, a short string), never as a serialized blob in a text field.
