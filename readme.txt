@@ -37,6 +37,9 @@ A serious class of bug in subscription tools is PHP Object Injection (CWE-502): 
 * Only logged-in customers can hold a subscription -- guest checkouts don't create one, since there's no account to attach it to
 * Simple products only in this version (no subscription variations)
 
+= Enjoying this plugin? =
+If it helps your site, please consider [leaving an honest review on WordPress.org](https://wordpress.org/support/plugin/hdwebmobile-simple-subscriptions/reviews/#new-post) -- it helps other WordPress users find it. Found a problem or have an idea? Please [open a support topic](https://wordpress.org/support/plugin/hdwebmobile-simple-subscriptions/) first so it can be fixed.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/hdwebmobile-simple-subscriptions` directory, or install the plugin through the WordPress plugins screen directly.
