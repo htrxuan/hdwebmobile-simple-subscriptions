@@ -3,7 +3,7 @@
 /**
  * Plugin Name: HDWebmobile Simple Subscriptions
  * Plugin URI: https://hdwebmobile.com/plugins/hdwebmobile-simple-subscriptions/
- * Description: Sell recurring/subscription products in WooCommerce. Subscription state is always plain scalar database columns -- this plugin never calls PHP's serialize()/unserialize() on any data, closing the exact object-injection vulnerability class found in a competing subscriptions plugin.
+ * Description: Sell recurring/subscription products in WooCommerce. Subscription state is always plain scalar database columns -- this plugin never calls PHP's serialize()/unserialize() on any data.
  * Version: 1.0.0
  * Author: htrxuan - Han Tran
  * Author URI: https://hdwebmobile.com/
