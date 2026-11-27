@@ -10,10 +10,10 @@ if (!defined('ABSPATH')) {
  * Every subscription's state lives in plain scalar columns -- an integer interval,
  * a DATETIME, a short status string. Nothing here is ever stored as a PHP-serialized
  * blob, and this class never calls serialize()/unserialize() on anything. That is a
- * deliberate design choice, not an incidental one: it closes the exact vulnerability
- * class in CVE-2026-18391, where a competing subscriptions plugin unserialized
- * untrusted data and an attacker supplied a crafted payload that instantiated a
- * gadget-chain object from a bundled dependency, achieving remote code execution.
+ * deliberate design choice, not an incidental one: it closes the PHP object-injection
+ * vulnerability class, where unserializing untrusted data lets an attacker supply a
+ * crafted payload that instantiates a gadget-chain object and achieves remote code
+ * execution.
  * A renewal date advancing from 100 to 107 can never be turned into an object.
  */
 // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
